@@ -1,8 +1,4 @@
-[build]
-builder = "NIXPACKS"
-
 [deploy]
-startCommand = "gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120"
-
-[[services]]
-name = "india-map-app"
+startCommand = "python3 init_db.py && gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --timeout 300"
+healthcheckPath = "/health"
+healthcheckTimeout = 300
