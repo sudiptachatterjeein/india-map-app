@@ -106,6 +106,10 @@ def logout():
     db.session.commit()
     logout_user()
     return redirect(url_for('login'))
+@app.route('/health')
+def health():
+    return 'OK', 200
+
 
 @app.route('/')
 def index():
